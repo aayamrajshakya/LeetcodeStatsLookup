@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeetCode Profile Viewer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <h1>LeetCode Profile Viewer</h1>
@@ -12,49 +12,6 @@
     <button onclick="fetchProfile()">Fetch Profile</button>
     <div id="profile"></div>
 
-    <script>
-    async function fetchProfile() {
-        const username = document.getElementById('username').value;
-        document.getElementById('profile').innerHTML = "Loading...";
-        
-        try {
-            const response = await fetch(`https://leetcode-api-faisalshohag.vercel.app/${username}`);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            
-            if (data && data.status !== 'error') {
-                const acceptanceRate = (data.totalSolved / data.totalSubmissions[0].submissions * 100).toFixed(2);
-                let profileHtml = `
-                    <h2>${username}'s LeetCode Profile</h2>
-                    <p>Total Solved: ${data.totalSolved}</p>
-                    <p>Easy: ${data.easySolved} / ${data.totalEasy}</p>
-                    <p>Medium: ${data.mediumSolved} / ${data.totalMedium}</p>
-                    <p>Hard: ${data.hardSolved} / ${data.totalHard}</p>
-                    <p>Acceptance Rate: ${acceptanceRate}%</p>
-                    <p>Ranking: ${data.ranking}</p>
-                    <h3>Recent Submissions:</h3>
-                    <ul>
-                `;
-                
-                // Add the 5 most recent submissions
-                data.recentSubmissions.slice(0, 5).forEach(submission => {
-                    profileHtml += `<li>${submission.title} - ${submission.statusDisplay}</li>`;
-                });
-                
-                profileHtml += '</ul>';
-                document.getElementById('profile').innerHTML = profileHtml;
-            } else {
-                document.getElementById('profile').innerHTML = "Unable to fetch user data. Please check the username and try again.";
-            }
-        } catch (error) {
-            console.error('Error fetching profile:', error);
-            document.getElementById('profile').innerHTML = `Error: ${error.message}`;
-        }
-    }
-    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
