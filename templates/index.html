@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>LeetCode Profile Viewer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>LeetCode Profile Viewer</h1>
-    <input type="text" id="username" placeholder="Enter LeetCode username">
-    <button onclick="fetchProfile()">Fetch Profile</button>
-    <div id="profile"></div>
+    <div class="container">
+        <header>
+            <h1>LeetCode Profile Viewer</h1>
+        </header>
+        
+        <main>
+            <div class="search-container">
+                <input type="text" id="username" placeholder="Enter your username">
+                <button onclick="fetchProfile()">Submit</button>
+            </div>
+            <div id="profile"></div>
+        </main>
+
+        <footer>
+            <p>&copy; Aayam Raj Shakya</p>
+            <div class="social-links">
+                <a href="https://github.com/aayamrajshakya" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aayamrajshakya" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </footer>
+    </div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
