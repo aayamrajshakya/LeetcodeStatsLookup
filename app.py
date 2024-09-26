@@ -7,9 +7,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/api/profile/<username>', methods=['GET'])
+@app.route('/<username>', methods=['GET'])
 def profile(username):
-    url = f"https://leetcode-stats-api.herokuapp.com/{username}"
+    url = f"https://leetscan.vercel.app/{username}"
     response = requests.get(url)
     return jsonify(response.json())
 
