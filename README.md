@@ -1,16 +1,16 @@
-# LeetCode Profile Viewer
+# LeetCode Stats Lookup
 A simple Flask-based application to view your LeetCode profile information. I utilized the API provided by [Sachin Sharma](https://github.com/chinxcode) for retrieving LeetCode profile data.
 
 ## How to run locally
 1. Clone the repo:
 ```bash
-git clone https://github.com/aayamrajshakya/LeetcodeProfileViewer.git
-cd LeetcodeProfileViewer
+git clone https://github.com/aayamrajshakya/LeetcodeStatsLookup.git
+cd LeetcodeStatsLookup
 ```
 
 2. Create & start a virtual environment:
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 

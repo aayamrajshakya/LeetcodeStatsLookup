@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('username').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            fetchProfile();
+        }
+    });
+});
+
+document.getElementById('username').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        fetchProfile();
+    }
+});
+
 async function fetchProfile() {
     const username = document.getElementById('username').value;
     document.getElementById('profile').innerHTML = "Looking for profile...";
